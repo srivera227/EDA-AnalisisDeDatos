@@ -1,2 +1,4 @@
 # EDA-AnalisisDeDatos
-Análisis exploratorio de datos para descubrir patrones, tendencias y validar hipótesis. Este repositorio contiene notebooks en Python con visualizaciones, limpieza de datos y estadísticas descriptivas para obtener insights accionables.
+Análisis exploratorio de datos para descubrir patrones, tendencias y validar hipótesis. Este repositorio contiene scripts en Python:
+Visualizaciones, limpieza de datos. 
+Estadísticas descriptivas para obtener insights accionables.
