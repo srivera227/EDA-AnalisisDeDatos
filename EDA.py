@@ -1,61 +1,61 @@
 import matplotlib
 matplotlib.use("TkAgg")
 
+from Imputaciones import imputacionMediana
 import pandas as pd
 import kagglehub
 from IPython.display import display
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-#Carga del dataset
+# ==========================================
+# CARGA  DEL DATASET
+# ==========================================
 df = pd.read_csv('datos.csv')
 # ==========================================
-# 1. INFORMACIÓN DEL DATASET
+# INFORMACIÓN DEL DATASET
 # ==========================================
 print("=" * 60)
 print(" " * 18 + "INFORMACIÓN DEL DATASET")
 print("=" * 60)
 df.info() # No need to use print() because df.info() automatically prints to console
 print("\n")
-
 # ==========================================
-# 2. DESCRIPCIÓN ESTADISTICA
+# DESCRIPCIÓN ESTADISTICA
 # ==========================================
 print("=" * 60)
 print(" " * 18 + "DESCRIPCIÓN ESTADISTICA")
 print("=" * 60)
 display(df.describe())
 print("\n")
-
 # ==========================================
-# 3. VALORES NULOS
+# INDICADORES - VALORES NULOS
 # ==========================================
 print("=" * 60)
 print(" " * 22 + "VALORES NULOS")
 print("=" * 60)
 print(df.isnull().sum())
 print("\n")
-
 # ==========================================
-# 4. FILAS DUPLICADAS
+# FILAS DUPLICADAS
 # ==========================================
 print("=" * 60)
 print(" " * 22 + "FILAS DUPLICADAS")
 print("=" * 60)
-print(f"Total duplicated rows found: {df.duplicated().sum()}")
+print(f"Total filas duplicadas: {df.duplicated().sum()}")
 print("\n")
 # ==========================================
-# 5. TRATAMIENTO DE LOS VALORES NULOS
+# TRATAMIENTO DE LOS VALORES NULOS
 # ==========================================
-#Eliminar valores nulos
-df = df.dropna()
-print(df.isnull().sum())
-
-
+print("=" * 60)
+print(" " * 22 + "TRATAMIENTO DE LOS VALORES NULOS")
+print("=" * 60)
+df_procesado = imputacionMediana(df,"job_title", "salary")
+print(df_procesado.isnull().sum())
 # ==========================================
-# 5. DETECCIÓN DE VALORES ATÍPICOS (BOXPLOT)
+# DETECCIÓN DE VALORES ATÍPICOS (BOXPLOT)
 # ==========================================
-sns.boxplot(x=df["salary"])
+sns.boxplot(x=df_procesado["salary"])
 plt.title("Boxplot de salario")
 plt.show()
 
