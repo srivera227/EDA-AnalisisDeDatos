@@ -22,7 +22,7 @@ def imputacionMediana(df,columna_job, columna_salario):
     print(f"Registros con job_title y que se pueden imputar: {registros_a_imputar}")
     
     if registros_a_imputar == 0:
-        print("\n✅ No hay registros para imputar")
+        print("\nNo hay registros para imputar")
         return df
     
     # PASO 4: Calcular medianas por job
@@ -47,12 +47,12 @@ def imputacionMediana(df,columna_job, columna_salario):
             imputados += 1
     
     # PASO 6: Resultados
-    print(f"\n" + "="*70)
+    print(f"\n" + "="*60)
     print("RESULTADOS FINALES:")
-    print("="*70)
-    print(f"✅ Imputados correctamente: {imputados}")
-    print(f"⚠️ Nulos que quedan (sin job_title): {df[columna_salario].isna().sum()}")
-    print(f"📈 Porcentaje imputado: {(imputados/total_nulos_inicial*100) if total_nulos_inicial>0 else 0:.1f}%")
+    print("="*60)
+    print(f"Imputados correctamente: {imputados}")
+    print(f"Nulos que quedan (sin job_title): {df[columna_salario].isna().sum()}")
+    print(f"Porcentaje imputado: {(imputados/total_nulos_inicial*100) if total_nulos_inicial>0 else 0:.1f}%")
     
     return df
 
