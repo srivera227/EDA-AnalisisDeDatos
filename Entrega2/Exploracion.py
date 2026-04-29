@@ -1,7 +1,7 @@
 import matplotlib
 matplotlib.use("TkAgg")
 
-from Imputaciones import imputacionMediana
+from Entrega2.Imputaciones import imputacionMediana
 import pandas as pd
 import kagglehub
 from IPython.display import display
